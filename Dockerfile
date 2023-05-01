@@ -1,4 +1,4 @@
 FROM willprice/nvidia-ffmpeg
 RUN apt install python3-pip
-RUN pip install jupyter
-RUN pip install jupyterlab
+RUN pip3 install jupyter
+RUN pip3 install jupyterlab
