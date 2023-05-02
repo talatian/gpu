@@ -1,4 +1,6 @@
 FROM nvidia/cuda:11.6.0-devel-ubuntu20.04
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=video,compute,utility
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt -y install python3-pip
 RUN pip3 install jupyter
@@ -14,6 +16,7 @@ RUN git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git && \
 RUN git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg/ && cd ffmpeg && \
     ./configure --enable-nonfree --enable-cuda-nvcc --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 && \
     make -j 8 && make install
+
     
 
 
