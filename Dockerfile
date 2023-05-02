@@ -1,4 +1,5 @@
 FROM nvidia/cuda:11.6.0-devel-ubuntu20.04
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt -y install python3-pip
 RUN pip3 install jupyter
 RUN pip3 install jupyterlab
