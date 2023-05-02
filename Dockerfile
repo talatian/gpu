@@ -1,7 +1,6 @@
-FROM nvidia/cuda:10.0-devel-ubuntu18.04
-
+FROM nvidia/cuda:11.6.0-devel-ubuntu20.04
 RUN apt update && apt -y install python3-pip
-# RUN pip3 install jupyter
+RUN pip3 install jupyter
 RUN pip3 install jupyterlab
 
 RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config
