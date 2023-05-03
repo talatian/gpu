@@ -7,7 +7,7 @@ RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 li
 
 RUN git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git && \
     cd nv-codec-headers && \
-    git checkout n8.1.24.14 && \
+    git checkout n11.1.5.2 && \
     make install && \
     cd ..
 
