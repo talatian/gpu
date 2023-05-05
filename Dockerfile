@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt -y install python3-pip python3.10
 
 
-RUN ln -s /usr/bin/python3 /usr/bin/python & \
+RUN ln -s /usr/bin/python3.10 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
     
 RUN python --version
