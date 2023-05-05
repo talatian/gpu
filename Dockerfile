@@ -4,7 +4,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES=video,compute,utility
 ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64/:/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt -y install python3-pip
+RUN apt update && apt -y install python3-pip python3
+
 
 RUN ln -s /usr/bin/python3 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
