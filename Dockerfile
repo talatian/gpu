@@ -4,6 +4,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES=video,compute,utility
 ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64/:/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 ARG DEBIAN_FRONTEND=noninteractive
 
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3
 RUN apt update && apt -y install python3-pip
 RUN pip3 install jupyter jupyterlab
 
