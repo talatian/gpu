@@ -8,6 +8,8 @@ RUN apt update && apt -y install python3-pip
 
 RUN ln -s /usr/bin/python3 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
+    
+RUN python --version
 
 RUN pip3 install jupyter jupyterlab
 
