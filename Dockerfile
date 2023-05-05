@@ -4,12 +4,13 @@ ENV NVIDIA_DRIVER_CAPABILITIES=video,compute,utility
 ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64/:/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt upgrade && apt -y install python3-pip
+RUN apt update && apt install software-properties-common && add-apt-repository ppa:deadsnakes/ppa 
+RUN apt update && apt -y install python3-pip python3.9
 
-#RUN python3.9 --version
-#RUN python3 --version
 
-RUN ln -s /usr/bin/python3 /usr/bin/python & \
+RUN python3 --version
+
+RUN ln -s /usr/bin/python3.9 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
     
 RUN python --version
