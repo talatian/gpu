@@ -5,7 +5,9 @@ ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64/:/usr/local/lib/x86_64-linux
 ARG DEBIAN_FRONTEND=noninteractive
 
 
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3
+RUN ln -s /usr/bin/python3 /usr/bin/python & \
+    ln -s /usr/bin/pip3 /usr/bin/pip
+
 RUN apt update && apt -y install python3-pip
 RUN pip3 install jupyter jupyterlab
 
