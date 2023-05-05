@@ -7,15 +7,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa 
 RUN apt update && apt -y install python3-pip python3.9
 
-
-RUN python3 --version
-
 RUN ln -s /usr/bin/python3.9 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
-    
-RUN python --version
 
-RUN pip3 install jupyter jupyterlab
+RUN python3.9 -m pip install jupyter jupyterlab
 
 RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config
 
