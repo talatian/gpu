@@ -4,11 +4,11 @@ ENV NVIDIA_DRIVER_CAPABILITIES=video,compute,utility
 ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64/:/usr/local/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN apt update && apt -y install python3-pip
 
 RUN ln -s /usr/bin/python3 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
 
-RUN apt update && apt -y install python3-pip
 RUN pip3 install jupyter jupyterlab
 
 RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config
