@@ -8,7 +8,7 @@ RUN apt update && apt install -y software-properties-common && add-apt-repositor
 RUN apt update && apt -y install python3-pip python3.10
 #RUN ln -s /usr/bin/python3.10 /usr/bin/python & \
 #    ln -s /usr/bin/pip3 /usr/bin/pip
-RUN sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
 RUN pip3 install --upgrade pip wheel setuptools
 
