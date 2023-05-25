@@ -5,11 +5,10 @@ ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64/:/usr/local/lib/x86_64-linux
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa 
-RUN apt update && apt -y install python3-pip python3.10
-#RUN ln -s /usr/bin/python3.10 /usr/bin/python & \
-#    ln -s /usr/bin/pip3 /usr/bin/pip
+RUN apt update && apt -y install python3.10
 
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+RUN apt -y install python3-pip
 
 RUN pip install --upgrade pip wheel setuptools
 
