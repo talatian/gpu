@@ -10,9 +10,9 @@ RUN apt update && apt -y install python3-pip python3.10
 #    ln -s /usr/bin/pip3 /usr/bin/pip
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
-RUN pip3 install --upgrade pip wheel setuptools
+RUN pip install --upgrade pip wheel setuptools
 
-RUN pip3 install jupyter jupyterlab
+RUN pip install jupyter jupyterlab
 
 RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config
 
