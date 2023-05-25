@@ -10,7 +10,7 @@ RUN apt update && apt -y install python3.10
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 RUN apt -y install python3-pip
 
-RUN pip install --upgrade pip wheel setuptools
+RUN pip3 install --upgrade pip wheel setuptools
 
 RUN pip install jupyter jupyterlab
 
