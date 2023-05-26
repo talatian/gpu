@@ -16,7 +16,7 @@ RUN pip3 install jupyter jupyterlab
 
 RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config
 
-RUN git clone --branch n8.2.15.11 https://git.videolan.org/git/ffmpeg/nv-codec-headers.git && \
+RUN git clone --branch n8.2.15.11 https://github.com/FFmpeg/nv-codec-headers.git && \
     cd nv-codec-headers && \
     make install && \
     cd ..
@@ -24,3 +24,6 @@ RUN git clone --branch n8.2.15.11 https://git.videolan.org/git/ffmpeg/nv-codec-h
 RUN git clone --branch n5.1.3 https://git.ffmpeg.org/ffmpeg.git ffmpeg/ && cd ffmpeg && \
     ./configure --enable-nonfree --enable-cuda-nvcc --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --disable-static --enable-shared && \
     make -j 8 && make install
+    
+RUN pip3 install deffcode opencv-python
+RUN apt update && apt-get install v4l-utils -y
