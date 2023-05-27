@@ -14,7 +14,7 @@ decoder = FFdecoder(
     "0",
     frame_format="yuv420p",  # use YUV420p frame pixel format
     verbose=True, # enable verbose output
-    **ffparams # apply various params and custom filters
+    #**ffparams # apply various params and custom filters
 ).formulate()
 
 # grab the BGR24 frames from decoder
