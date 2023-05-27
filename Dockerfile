@@ -26,4 +26,4 @@ RUN git clone --branch n5.1.3 https://git.ffmpeg.org/ffmpeg.git ffmpeg/ && cd ff
     make -j 8 && make install
     
 RUN pip3 install deffcode opencv-python
-RUN apt update && apt-get install v4l-utils libsm6 libxext6 libturbojpeg0 -y
+RUN apt update && apt-get install v4l-utils libsm6 libxext6 libturbojpeg -y
