@@ -14,7 +14,7 @@ RUN pip3 install --upgrade pip wheel setuptools
 
 RUN pip3 install jupyter jupyterlab
 
-RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config
+RUN apt update && apt install -y git build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev pkg-config libx264-dev
 
 RUN git clone --branch n8.2.15.11 https://github.com/FFmpeg/nv-codec-headers.git && \
     cd nv-codec-headers && \
@@ -22,7 +22,7 @@ RUN git clone --branch n8.2.15.11 https://github.com/FFmpeg/nv-codec-headers.git
     cd ..
 
 RUN git clone --branch n5.1.3 https://git.ffmpeg.org/ffmpeg.git ffmpeg/ && cd ffmpeg && \
-    ./configure --enable-nonfree --enable-cuda-nvcc --enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --disable-static --enable-shared && \
+    ./configure --enable-nonfree --enable-cuda-nvcc --enable-libnpp --enable-gpl --enable-libx264 --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --disable-static --enable-shared && \
     make -j 8 && make install
     
 RUN pip3 install deffcode opencv-python
