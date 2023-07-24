@@ -25,5 +25,5 @@ RUN git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg/ && cd ffmpeg && \
     ./configure --enable-nonfree --enable-cuda-nvcc --enable-libnpp --enable-gpl --enable-libx264 --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --disable-static --enable-shared && \
     make -j 8 && make install
     
-RUN pip3 install deffcode opencv-python
+RUN pip install deffcode opencv-python
 RUN apt update && apt-get install v4l-utils libsm6 libxext6 libturbojpeg -y
